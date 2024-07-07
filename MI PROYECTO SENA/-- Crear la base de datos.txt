@@ -1,0 +1,95 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS CentroServicioTecnico;
+USE CentroServicioTecnico;
+
+-- Crear la tabla para clientes
+CREATE TABLE IF NOT EXISTS Clientes (
+    id_cliente INT AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    direccion VARCHAR(100),
+    telefono VARCHAR(15),
+    email VARCHAR(50),
+    PRIMARY KEY (id_cliente)
+);
+
+-- Crear la tabla para equipos
+CREATE TABLE IF NOT EXISTS Equipos (
+    id_equipo INT AUTO_INCREMENT,
+    nombre_equipo VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(100),
+    PRIMARY KEY (id_equipo)
+);
+
+-- Crear la tabla para empleados
+CREATE TABLE IF NOT EXISTS Empleados (
+    id_empleado INT AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    direccion VARCHAR(100),
+    telefono VARCHAR(15),
+    email VARCHAR(50),
+    cargo VARCHAR(50),
+    PRIMARY KEY (id_empleado)
+);
+
+-- Crear la tabla para órdenes de servicio
+CREATE TABLE IF NOT EXISTS OrdenesServicio (
+    id_orden INT AUTO_INCREMENT,
+    id_cliente INT,
+    id_equipo INT,
+    id_empleado INT,
+    fecha_inicio DATE,
+    fecha_fin DATE,
+    descripcion_problema TEXT,
+    descripcion_reparacion TEXT,
+    costo DECIMAL(10, 2),
+    PRIMARY KEY (id_orden),
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_equipo) REFERENCES Equipos(id_equipo),
+    FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
+);
+
+-- Crear la tabla para inventario
+CREATE TABLE IF NOT EXISTS Inventario (
+    id_producto INT AUTO_INCREMENT,
+    nombre_producto VARCHAR(50) NOT NULL,
+    cantidad_stock INT,
+    id_proveedor INT,
+    PRIMARY KEY (id_producto),
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor)
+);
+
+-- Crear la tabla para proveedores
+CREATE TABLE IF NOT EXISTS Proveedores (
+    id_proveedor INT AUTO_INCREMENT,
+    nombre_empresa VARCHAR(100) NOT NULL,
+    direccion VARCHAR(100),
+    telefono VARCHAR(15),
+    email VARCHAR(50),
+    PRIMARY KEY (id_proveedor)
+);
+
+-- Crear la tabla para facturación y pagos
+CREATE TABLE IF NOT EXISTS FacturacionPagos (
+    id_transaccion INT AUTO_INCREMENT,
+    id_orden INT,
+    monto DECIMAL(10, 2),
+    metodo_pago VARCHAR(50),
+    fecha_transaccion DATE,
+    PRIMARY KEY (id_transaccion),
+    FOREIGN KEY (id_orden) REFERENCES OrdenesServicio(id_orden)
+);
+
+-- Crear la tabla para el historial de servicio
+CREATE TABLE IF NOT EXISTS HistorialServicio (
+    id_historial INT AUTO_INCREMENT,
+    id_orden INT,
+    descripcion_problema TEXT,
+    descripcion_reparacion TEXT,
+    fecha_servicio DATE,
+    PRIMARY KEY (id_historial),
+    FOREIGN KEY (id_orden) REFERENCES OrdenesServicio(id_orden)
+);
+REPAIR TABLE Proveedores;
+OPTIMIZE TABLE Proveedores;
+
+show tables

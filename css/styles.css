@@ -1,0 +1,335 @@
+
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #feff00;
+    --secundario: #294380;
+    --gris: #a5c8ca;
+    --azul: #005bc5;
+
+    --fuente-principal: 3.8rem;
+}
+
+/* Reset de estilos para garantizar consistencia en diferentes navegadores */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: "krub", sans-serif;
+    background-color: #f7f7f7; /* Color de fondo para el cuerpo */
+}
+
+/* Estilos para el encabezado */
+
+header {
+    background-color: #294380;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 26px;
+    text-align: center;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #ff6347;
+}
+
+
+.titulo {
+    font-size: 26px;
+}
+
+.titulo span {
+    font-size: 12px;
+}
+
+
+.nav-bg {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 5px;
+    align-items: center;
+    color: #294380;
+    background-color: #f8f8ec;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-bg a {
+    color: #212121;
+    text-decoration: none;
+    padding: 60px;
+}
+
+.nav-bg a:hover {
+    color: #ff6347;
+}
+
+
+/* Animación de transición de color para los enlaces de navegación */
+.nav-bg a {
+    color: #212121;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 60px;
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Estilos para los elementos dentro del dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+/* Cambia el color de fondo del enlace cuando se pasa el cursor sobre él */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Establece los submenús como elementos en línea */
+.submenu {
+    display: inline-block;
+    position: relative;
+    
+}
+
+
+.carrusel__lista {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carrusel__indicadores {
+    display: none; /* Oculta los indicadores de puntos */
+}
+
+.carrusel__elemento {
+    flex: 0 0 auto;
+    margin: auto;
+    transform: scale(0.8);
+    transition: transform 0.5s ease;
+}
+
+.carrusel__elemento img {
+    height: auto; 
+    width: auto;
+    border-radius: 15px; /* Añade bordes redondeados más pronunciados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Aumenta el tamaño y la opacidad de la sombra */
+    transition: transform 0.5s ease; /* Añade una transición suave al pasar el ratón sobre las imágenes */
+}
+
+.carrusel__elemento:hover {
+    transform: scale(1.1); /* Aumenta el efecto de escala al pasar el ratón sobre la imagen */
+}
+
+/* Estilo para los botones de navegación */
+.carrusel__anterior,
+.carrusel__siguiente {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7); /* Agrega un fondo semitransparente a los botones */
+    padding: 10px;
+    border-radius: 50%; /* Da forma circular a los botones */
+    z-index: 2; /* Asegura que los botones estén por encima de las imágenes */
+}
+
+.carrusel__anterior {
+    left: 10px;
+}
+
+.carrusel__siguiente {
+    right: 10px;
+}
+
+
+/* Estilos para la sección de lavandería */
+.lavanderia { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #212121;
+    margin-bottom: 0px;
+}
+
+.contenido-lavanderia {
+    text-align: center; 
+}
+
+/* Estilos para los botones */
+.boton {
+    color: #ffffff;
+    background-color: #005bc5;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.boton:hover {
+    background-color: #ff6347;
+}
+
+/* Estilos para sobre nosotros */
+.sobre-nosotros {
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 40px; /* Aumentamos el espaciado interno para mayor comodidad visual */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify; /* Justificamos el texto para una apariencia más ordenada */
+}
+
+.sobre-nosotros h2 {
+    color: #294380; /* Cambiamos el color del título para que destaque más */
+    text-align: center;
+    font-size: 35px; /* Aumentamos el tamaño del título para mayor impacto */
+    margin-bottom: 20px; /* Agregamos un espacio adicional entre el título y el contenido */
+}
+
+.sobre-nosotros p {
+    color: #212121; /* Reducimos un poco el contraste del texto para que sea más suave */
+    font-size: 15px;
+    line-height: 1.8;
+}
+  
+
+section {
+    width: 100%; 
+    max-width: 800px; 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+h3 {
+    font-size: 50px; /* Tamaño de fuente para el título */
+}
+
+.phone-number {
+    font-weight: bold; 
+    font-size: 30px;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #128C7E; /* Cambia el color de fondo cuando se pasa el cursor */
+  }
+  
+  .whatsapp-button::before {
+    content: url('whatsapp-icon.png'); /* Agrega el icono de WhatsApp antes del texto */
+    display: none; /* Oculta el icono por defecto */
+    margin-right: 5px;
+  }
+  
+  .whatsapp-button:hover::before {
+    display: inline-block; /* Muestra el icono cuando se pasa el cursor */
+  }
+
+  main {
+    background-color: #294380;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
+}
+
+
+  .aliados {
+    font-size: 40px;
+    text-align: center;
+    color: #294380 ;
+  }
+
+ .aliados-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .aliado {
+    text-align: center;
+  }
+  
+  .aliado img {
+    max-width: 50%;
+    height: auto;
+    width: auto;
+  }
+  
+
+/* Agrega estilos para el dropdown */
+/* Muestra el dropdown cuando se pasa el cursor sobre "Productos" y "Reparaciones" */
+#productosSubmenu:hover .dropdown-content,
+#reparacionesSubmenu:hover .dropdown-content,
+#Gassudmenu:hover .dropdown-content,
+#electricidadSubmenu:hover .dropdown-content,
+#hogarSubmenu:hover .dropdown-content {
+    display: block;
+}
+
+
+.footer-text p {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #7e7e7e;
+    line-height: 28px;
+}
+
+.copyright-area {
+    background: var(--secundario);
+    padding: 25px 0;
+}
+
+.copyright-text p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--blanco);
+}
+
+.footer-menu li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+
